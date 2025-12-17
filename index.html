@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body{
+         text-align: center;
+      }
+      .box1{
+         display: flex;
+         justify-self: center;
+         align-items: center;
+         font-size: 24px;
+
+      }
+      .btn{
+         margin-top: 20px;
+      }
+      button{
+         font-size: 20px;
+         margin: 10px;
+      }
+      </style>
+</head>
+<body>
+<h1>随机点名</h1>
+<div class="box1">
+   <span>姓名：</span>
+   <div class="qs">这里显示名字</div>
+</div>
+<div class="btn">
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+</div>
+<script>
+   let timer = 0
+   const qs = document.querySelector(".qs")
+   const names = ["幸运儿","律师","慈善家","园丁","医生","机械师","佣兵","魔术师","冒险家","调香师","祭司","前锋","勘探员","咒术师","牛仔","先知","入殓师","杂技演员","大副","野人","舞女","祭司","病患","心理学家","调酒师","击球手","玩具商","哭泣小丑","守墓人","囚徒","昆虫学者","画家","小说家","记者","古董商","气象学家","骑士","作曲家","法罗女士","火灾调查员","飞行家","木偶师","教授","盲女","拉拉队员","弓箭手","逃脱大师","幻灯师"]
+   const start = document.getElementById("start")
+   start.addEventListener("click",function(){
+          timer = setInterval(function(){
+           const randomIndex = Math.floor(Math.random()*names.length)
+           qs.innerHTML = names[randomIndex]
+       },100)
+   })
+   const stop = document.getElementById("stop")
+   stop.addEventListener("click",function(){
+      clearInterval(timer)
+   })
+
+</script>
+</body>
+</html>
